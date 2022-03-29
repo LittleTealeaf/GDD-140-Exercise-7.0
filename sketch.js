@@ -18,9 +18,14 @@ function setup() {
 
 function draw() {
     background(255);
+    var last_height = -100;
     rolls.forEach((item,index) => {
-        image(DICE_IMGS[item],(100 * index)%width,100 * int((100 * index) / width));
-    })
+        last_height = 100 * int((100 * index) / width);
+        image(DICE_IMGS[item],(100 * index)%width,last_height);
+    });
+
+    textSize(30);
+    text("Click for Random Dice Roll",0,last_height + 200);
 }
 
 function mouseClicked() {
